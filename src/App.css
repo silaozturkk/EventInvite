@@ -1,0 +1,671 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+.counter {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: 24px;
+
+  &:hover {
+    border-color: var(--accent-border);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.hero {
+  position: relative;
+
+  .base,
+  .framework,
+  .vite {
+    inset-inline: 0;
+    margin: 0 auto;
+  }
+
+  .base {
+    width: 170px;
+    position: relative;
+    z-index: 0;
+  }
+
+  .framework,
+  .vite {
+    position: absolute;
+  }
+
+  .framework {
+    z-index: 1;
+    top: 34px;
+    height: 28px;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
+      scale(1.4);
+  }
+
+  .vite {
+    z-index: 0;
+    top: 107px;
+    height: 26px;
+    width: auto;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
+      scale(0.8);
+  }
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+
+  @media (max-width: 1024px) {
+    padding: 32px 20px 24px;
+    gap: 18px;
+  }
+}
+
+#next-steps {
+  display: flex;
+  border-top: 1px solid var(--border);
+  text-align: left;
+
+  & > div {
+    flex: 1 1 0;
+    padding: 32px;
+    @media (max-width: 1024px) {
+      padding: 24px 20px;
+    }
+  }
+
+  .icon {
+    margin-bottom: 16px;
+    width: 22px;
+    height: 22px;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+#docs {
+  border-right: 1px solid var(--border);
+
+  @media (max-width: 1024px) {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+#next-steps ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  margin: 32px 0 0;
+
+  .logo {
+    height: 18px;
+  }
+
+  a {
+    color: var(--text-h);
+    font-size: 16px;
+    border-radius: 6px;
+    background: var(--social-bg);
+    display: flex;
+    padding: 6px 12px;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: var(--shadow);
+    }
+    .button-icon {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+      flex: 1 1 calc(50% - 8px);
+    }
+
+    a {
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+  }
+}
+
+#spacer {
+  height: 88px;
+  border-top: 1px solid var(--border);
+  @media (max-width: 1024px) {
+    height: 48px;
+  }
+}
+
+.ticks {
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4.5px;
+    border: 5px solid transparent;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: var(--border);
+  }
+  &::after {
+    right: 0;
+    border-right-color: var(--border);
+  }
+}
+
+/* ==========================================================================
+   EventInvite - Plain CSS
+   ========================================================================== */
+.appShell {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+  
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,105,180,0.25), transparent 40%),
+      radial-gradient(circle at 80% 10%, rgba(255,200,0,0.25), transparent 40%),
+      radial-gradient(circle at 60% 80%, rgba(255,150,0,0.25), transparent 40%),
+      linear-gradient(135deg, #fff4f7, #fff7d6);
+}
+.appShell::before {
+  content: "🎉 🎂 💍 🎓 ✨ 🎈 🎊";
+  position: fixed;
+  font-size: 40px;
+  opacity: 0.06;
+  top: 20%;
+  left: 10%;
+  letter-spacing: 60px;
+  pointer-events: none;
+}
+.appShell::after {
+  content: "🎉 🎓 🎂 💍 🎊";
+  position: fixed;
+  font-size: 36px;
+  opacity: 0.05;
+  bottom: 15%;
+  right: 10%;
+  letter-spacing: 70px;
+  pointer-events: none;
+}
+.topNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 22px 40px;
+  border-bottom: 1px solid var(--border);
+
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.6);
+}
+
+.navButton {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-h);
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.05s ease;
+}
+
+.navButton:hover {
+  border-color: var(--accent-border);
+}
+
+.navButton:active {
+  transform: translateY(1px);
+}
+
+.navButton--active {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--accent);
+}
+.navMenu {
+  justify-self: center;
+  display: flex;
+  gap: 14px;
+}
+.appMain {
+  flex: 1;
+  display: flex;
+  gap: 24px;
+  padding: 30px 40px;
+
+  width: 100%;
+  max-width: none;   /* bunu değiştir */
+  margin: 0;         /* bunu değiştir */
+}
+
+.formPanel {
+  flex: 1;
+}
+
+.previewPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.panelHeader {
+  margin-bottom: 16px;
+}
+
+.panelTitle {
+  margin: 0 0 6px;
+  font-size: 24px;
+  color: var(--text-h);
+}
+
+.panelSubtitle {
+  margin: 0;
+  opacity: 0.9;
+  color: var(--text-h);
+}
+
+.dynamicForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-size: 13px;
+  color: var(--text-h);
+  opacity: 0.9;
+}
+
+.fieldInput {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1.5px solid rgba(0,0,0,0.12);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(4px);
+  color: var(--text-h);
+  font-size: 14px;
+  outline: none;
+}
+.fieldInput:focus {
+  border-color: var(--accent);
+  box-shadow: 0 4px 18px rgba(170,59,255,0.25);
+}
+.fieldInput::placeholder {
+  color: rgba(0,0,0,0.45);
+}
+
+.fieldTextarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.downloadButton {
+  width: 100%;
+  max-width: 480px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.05s ease, background 0.2s ease;
+}
+
+.downloadButton:hover {
+  filter: brightness(1.02);
+}
+
+.downloadButton:active {
+  transform: translateY(1px);
+}
+
+.downloadButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .appMain {
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .previewPanel {
+    flex: 1 1 auto;
+    flex-basis: auto;
+    max-width: 100%;
+  }
+
+  .formPanel {
+    max-width: 100%;
+  }
+}
+
+/* Invitation */
+.invitation {
+  width: 420px;
+  max-width: 100%;
+  height: 620px;
+  border-radius: 22px;
+  padding: 36px 28px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.invitationInner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.invitationDecor {
+  position: absolute;
+  top: 190px;
+  left: 0;
+  right: 0;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.invitationEventIcon {
+  width: 150px;
+  height: 150px;
+  border-radius: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  pointer-events: none;
+}
+
+.invitationEventIcon svg {
+  width: 86px;
+  height: 86px;
+}
+
+.invitationEventIcon--birthday {
+  color: #ff4fbf;
+}
+
+.invitationEventIcon--wedding {
+  color: #ef4444;
+}
+
+.invitationEventIcon--party {
+  color: #00f5ff;
+}
+
+.invitationEventIcon--party {
+  transform: translateY(14px);
+}
+
+.invitationEventIcon--graduation {
+  color: #4f46e5;
+}
+
+.invitationHeader {
+  text-align: center;
+}
+
+.invitationHeading {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  opacity: 0.95;
+}
+
+.invitationTitle {
+  font-size: 34px;
+  line-height: 1.05;
+  letter-spacing: -0.7px;
+  font-weight: 900;
+}
+
+.invitationMeta {
+  margin-top: 24px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.invitationLine {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.invitationLineLabel {
+  opacity: 0.85;
+}
+
+.invitationLineValue {
+  font-weight: 750;
+  text-align: right;
+}
+
+.invitationMessage {
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+.invitationMessageLabel {
+  font-size: 12px;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.invitationMessageText {
+  margin: 0;
+  padding: 16px 14px;
+  border-radius: 14px;
+  white-space: pre-wrap;
+  line-height: 1.35;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Birthday theme */
+.invitation--birthday {
+  color: #1f1140;
+  font-family: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(135deg, #ff6bd6 0%, #ffd2f0 35%, #fff7ff 70%, #f2fbff 100%);
+}
+
+.invitation--birthday::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Poster havası: soft gradient + konfeti/şekil dokusu */
+  background:
+    /* parıltılar */
+    radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.8), transparent 32%),
+    radial-gradient(circle at 86% 18%, rgba(255, 255, 255, 0.6), transparent 34%),
+    radial-gradient(circle at 78% 72%, rgba(255, 255, 255, 0.35), transparent 38%),
+    /* renkli baloncuklar */
+    radial-gradient(circle at 16% 68%, rgba(255, 43, 214, 0.35), transparent 42%),
+    radial-gradient(circle at 92% 60%, rgba(0, 245, 255, 0.25), transparent 44%),
+    radial-gradient(circle at 52% 10%, rgba(255, 199, 0, 0.3), transparent 40%),
+    /* mikro konfeti çizgileri */
+    repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12) 0px,
+      rgba(255, 255, 255, 0.12) 2px,
+      transparent 2px,
+      transparent 10px
+    );
+  opacity: 0.55;
+  z-index: 0;
+}
+
+.invitation--birthday .invitationMeta,
+.invitation--birthday .invitationMessageText {
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.invitation--birthday .invitationLineValue {
+  color: #4c1d95;
+}
+
+.invitation--birthday .invitationTitle {
+  text-shadow: 0 12px 32px rgba(170, 59, 255, 0.18);
+}
+
+/* Wedding theme */
+.invitation--wedding {
+  background: linear-gradient(180deg, #ffffff, #fbfbff);
+  color: #1c1c1c;
+  font-family: Georgia, 'Times New Roman', serif;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.invitation--wedding .invitationMeta,
+.invitation--wedding .invitationMessageText {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* Party theme */
+.invitation--party {
+  background: radial-gradient(circle at 20% 10%, rgba(255, 43, 214, 0.35), transparent 50%),
+    radial-gradient(circle at 90% 20%, rgba(0, 245, 255, 0.35), transparent 50%),
+    linear-gradient(135deg, #050817, #0b1228);
+  color: #e9f6ff;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.invitation--party .invitationMeta,
+.invitation--party .invitationMessageText {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.invitation--party .invitationLineValue {
+  color: #00f5ff;
+}
+
+.invitation--party .invitationTitle {
+  color: #f9fbff;
+  text-shadow: 0 0 18px rgba(0, 245, 255, 0.22);
+}
+
+/* Graduation theme */
+.invitation--graduation {
+  background: radial-gradient(circle at 15% 10%, rgba(59, 130, 246, 0.35), transparent 55%),
+    radial-gradient(circle at 90% 0%, rgba(168, 85, 247, 0.35), transparent 50%),
+    linear-gradient(135deg, #f7faff, #f2f0ff);
+  color: #1f1644;
+  font-family: 'Segoe UI', Tahoma, system-ui, sans-serif;
+}
+
+.invitation--graduation .invitationMeta,
+.invitation--graduation .invitationMessageText {
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.invitation--graduation .invitationLineValue {
+  color: #4f46e5;
+}
+
+.invitation--graduation .invitationTitle {
+  color: #4338ca;
+}
+.logo {
+  justify-self: start;
+  font-size: 24px;
+  font-weight: 800;
+}
+.navButton--active {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--accent);
+  box-shadow: 0 4px 14px rgba(170,59,255,0.25);
+}
+.footer {
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+
+.footerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 24px 40px;
+
+  font-size: 14px;
+  color: var(--text);
+}
+
+.footerRight {
+  opacity: 0.7;
+}
